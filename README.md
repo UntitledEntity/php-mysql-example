@@ -3,6 +3,10 @@
 
 A simple example on how to use MYSQL in PHP.
 
+## Test it out!
+
+This example is uploaded [here](https://jacobgluska.com/php-mysql-example/) for you to register and check out! <br>
+NOTE: I am not liable for any DB leaks and the DB is wiped fairly often.
 
 ## FAQ
 
