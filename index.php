@@ -8,7 +8,7 @@ include 'includes/functions.php';
 
 if (isset($_POST['login']))
 {
-    die(login($_POST['user'], $_POST['pass']));
+    die(json_encode(login($_POST['user'], $_POST['pass'])));
 }
 
 if (isset($_POST['register']))
