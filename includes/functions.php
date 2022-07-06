@@ -71,8 +71,12 @@ function register($user, $pass)
     // get the ip
     global $ip;
 
+    // sanitize
+    $user = sanitize($user);
+    $pass = sanitize($pass);
+
     // hash the password 
-    $password = password_hash($pass, PASSWORD_BCRYPT);
+    $hashed_pass = password_hash($pass, PASSWORD_BCRYPT);
 
     // check if there's an existing user before inserting one
     $result = mysqli_query($mysql_link, "SELECT * FROM users WHERE username = '$user'");
@@ -85,7 +89,7 @@ function register($user, $pass)
 
     $timestamp = time();
 
-    $resp = mysqli_query($mysql_link, "INSERT INTO users (username, password, expires, hwid, banned, ip, lastlogin) VALUES ('$user', '$password', '', '', '0', '$ip', '$timestamp')");
+    $resp = mysqli_query($mysql_link, "INSERT INTO users (username, password, expires, hwid, banned, ip, lastlogin) VALUES ('$user', '$hashed_pass', '', '', '0', '$ip', '$timestamp')");
     if ($resp === false)
     {
         return mysqli_error($mysql_link);
