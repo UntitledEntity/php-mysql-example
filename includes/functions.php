@@ -37,7 +37,7 @@ function login($user,$pass)
     $result = mysqli_query($mysql_link, "SELECT * FROM users WHERE username = '$user'");
     
     // unable to find user
-    if (mysqli_num_rows($result) === false)
+    if (mysqli_num_rows($result) === 0)
     {
         return 'user_not_found';
     }
@@ -50,7 +50,7 @@ function login($user,$pass)
         $banned = $row['banned'];
     }
     
-    if ($banned == 1)
+    if ($banned === 1)
     {
         return 'banned';
     }
