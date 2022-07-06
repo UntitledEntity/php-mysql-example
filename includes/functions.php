@@ -4,10 +4,13 @@ require 'mysql_connect.php';
 
 function sanitize($data)
 {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+    if(empty($data) && !is_numeric($data))
+	{
+		return NULL;
+	}
+
+    global $mysql_link;
+    return mysqli_real_escape_string($mysql_link, strip_tags(trim($data)));
 }
 
 // global ip variable
