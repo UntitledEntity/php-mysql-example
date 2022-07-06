@@ -47,6 +47,11 @@ function login($user,$pass)
         $banned = $row['banned'];
     }
     
+    if ($banned == 1)
+    {
+        return 'banned';
+    }
+
     // check if pass matches
     if (password_verify($pass, $pw) === false)
     {
@@ -60,7 +65,12 @@ function login($user,$pass)
     // update the ip
     mysqli_query($mysql_link, "UPDATE users SET ip = '$ip' WHERE username = '$user'");
 
-    return 'validated';
+    return array(
+        "user" => $user,
+        "lastlogin" => $timestamp,
+        "hwid" => $hwidd,
+        "ip" => $ip
+    );
 }
 
 function register($user, $pass)
