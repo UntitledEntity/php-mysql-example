@@ -1,5 +1,5 @@
 # php-mysql-example
-[![PHP](hhttps://img.shields.io/badge/language-PHP-787cb5.svg?style=plastic)](https://en.wikipedia.org/wiki/PHP) 
+[![PHP](https://img.shields.io/badge/language-PHP-787cb5.svg?style=plastic)](https://en.wikipedia.org/wiki/PHP) 
 
 A simple example on how to use MYSQL in PHP.
 
