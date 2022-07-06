@@ -88,7 +88,7 @@ function register($user, $pass)
     $resp = mysqli_query($mysql_link, "INSERT INTO users (username, password, expires, hwid, banned, ip, lastlogin) VALUES ('$user', '$password', '', '', '0', '$ip', '$timestamp')");
     if ($resp === false)
     {
-        return mysqli_error();
+        return mysqli_error($mysql_link);
     }
 
     return 'registered';
